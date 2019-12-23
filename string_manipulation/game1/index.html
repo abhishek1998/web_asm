@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WebAssembly Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <div class="dice" >
+        <img src="https://img.icons8.com/dotty/240/000000/dice.png"/>
+    </div>
+    <!-- Include the JavaScript glue code. -->
+    <!-- This will load the WebAssembly module and run its main. --> 
+    <script src="index.js"></script>
+    <script>
+        var dice = document.querySelector('.dice');
+
+        dice.addEventListener('click', function() {
+            // you can call c functions using _functionName(args ... );
+            var result = _roll_dice();
+            console.log("dice rolled " + result);
+
+            var fib_1 = _fib2(103);
+            console.log("fib(103)" + fib_1);
+        });
+        
+    </script>
+
+</body>
+</html> 
